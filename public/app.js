@@ -69,7 +69,20 @@ $(document).on("click", "#article-notes", function () {
 });
 
 // Query on  saved articles button
-$(document).on("click", "#save-article", function () {
+$(document).on("click", "#save-button", function () {
+  var link =$(".article-link").attr("href");
+  var title =$("#article-title-sec").text()
+  $.ajax({
+    method:"POST",
+    // url: "/articles/" + thisId// in server.js  we need a route to /articles/:id 
+    url:"/api/saved",
+    data: {
+      title: title,
+      link: link
+    }
+    }).then(function(){
+    window.location.reload();
+  })
   
 });
 

@@ -26,14 +26,17 @@
         </div>
     </nav>
     {{!-- scrape articles section --}}
-     <div class="container-fluid article-container">
+    <div class="container-fluid article-container">
         {{#each results}}
         <div class="card">
             <div class="card-header">
                 <h3><a class="article-link" target="_blank" rel="noopener noreferrer"
-                        href={{this.link}}>{{this.link}}</a><a class="btn btn-success save">{{this.id}}</a></h3>
+                        href={{this.link}}>{{this.link}}</a>
+                    <a class="btn btn-success save" id="save-button">save</a>
+                    
+                    </h3>
             </div>
-            <div class="card-body" id="article-title-sec">{{title}}</div>
+            <div class="card-body" id="article-title-sec">{{this.title}}</div>
         </div>
 
         {{/each}}

@@ -71,21 +71,21 @@ app.get("/scrape", function (req, res) {
           // summary: summary
         });
         // Insert the data in the scrapedData db Article
-        db.Article.create({
-          title: title,
-          link: link,
-          // summary: summary
-        },
-          function (err, inserted) {
-            if (err) {
-              // Log the error if one is encountered during the query
-              console.log(err);
-            }
-            else {
-              // Otherwise, log the inserted data
-              console.log(inserted);
-            }
-          });
+        // db.Article.create({
+        //   title: title,
+        //   link: link,
+        //   // summary: summary
+        // },
+        //   function (err, inserted) {
+        //     if (err) {
+        //       // Log the error if one is encountered during the query
+        //       console.log(err);
+        //     }
+        //     else {
+        //       // Otherwise, log the inserted data
+        //       console.log(inserted);
+        //     }
+        //   });
       }
       console.log(results);
 
