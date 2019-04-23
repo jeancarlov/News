@@ -17,7 +17,7 @@
                     <a class="nav-link" id="saved-articles-button" href="/saved">Saved Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-danger scrape-new" id="scrape-button">SCRAPE NEW ARTICLES!</a>
+                    <a class="btn btn-danger scrape-new" id="scrape-button" href="/scrape">SCRAPE NEW ARTICLES!</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-danger clear" id="clear-aritcles-button">CLEAR ARTICLES!</a>
@@ -30,10 +30,10 @@
         {{#each articles}}
         <div class="card">
             <div class="card-header">
-                <h3><a class="article-link" target="_blank" rel="noopener noreferrer"
+                <h3><a class="article-link" id="article-link-sec" target="_blank" rel="noopener noreferrer"
                         href={{this.link}}>{{this.link}}</a><a class="btn btn-success save">{{this.id}}</a></h3>
             </div>
-            <div class="card-body">{{title}}</div>
+            <div class="card-body" id="article-title-sec">{{title}}</div>
         </div>
 
         {{/each}}

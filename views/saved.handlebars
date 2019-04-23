@@ -17,7 +17,7 @@
                     <a class="nav-link" id="saved-articles-button" href="/saved">Saved Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-danger scrape-new" id="scrape-button">SCRAPE NEW ARTICLES!</a>
+                    <a class="btn btn-danger scrape-new" id="scrape-button" href="/scrape">SCRAPE NEW ARTICLES!</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-danger clear" id="clear-aritcles-button">CLEAR ARTICLES!</a>
@@ -31,13 +31,13 @@
                 <div data-_id={{this.id}} class="card">
                     <div class="card-header">
                         <h3>
-                            <a class="article-link" target="_blank" rel="noopener noreferrer"
+                            <a class="article-link" id="article-link-sec" target="_blank" rel="noopener noreferrer"
                                 href={{this.link}}>{{this.link}}</a>
-                            <a data-_id={{this.id}} class="btn btn-danger delete">Delete From Saved</a>
-                            <a data-_id={{this.id}} class="btn btn-info notes">Article Notes</a>
+                            <a data-_id={{this.id}} class="btn btn-danger delete" id="delete-button">Delete From Saved</a>
+                            <a data-_id={{this.id}} class="btn btn-info notes" id="article-notes">Article Notes</a>
                         </h3>
                     </div>
-                    <div class="card-body">{{this.title}}</div>
+                    <div class="card-body" id="article-title-sec">{{this.title}}</div>
 
                 </div>
         {{/each}}

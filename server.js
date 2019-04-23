@@ -88,18 +88,21 @@ app.get("/scrape", function (req, res) {
           });
       }
       console.log(results);
-
+      res.render("scrape",{results: results});
     });
-
-    // Log the results once you've looped through each of the elements found with cheerio
-    res.send("Scrape Complete");
   });
-
+  // Log the results once you've looped through each of the elements found with cheerio
+  //res.send("Scrape Complete");
+ 
 });
 
-app.get("/"), function (req, res) {
-  res.render("index");
-}
+
+
+// app.get("/"), function (req, res) {
+//   res.render("index");
+// }
+
+
 
 
 // Route for getting all Articles from the db
@@ -110,14 +113,15 @@ app.get("/saved", function (req, res) {
       console.log(dbArticle);
 
       // If we were able to successfully find Articles, send them back to the client
-      res.json(dbArticle);
-      // res.render("saved", {
-      //   saved: dbArticle
-      // });
+      // res.json(dbArticle);
+      res.render("saved", {
+        saved: dbArticle
+      });
     })
   .catch(function (err) {
     // If an error occurred, send it to the client
     res.json(err);
+
   });
 });
 
@@ -133,8 +137,11 @@ app.get("/articles/:id", function (req, res) {
     .then(function (dbArticle) {
       // If we were able to successfully find an Article with the given id, send it back to the client
       console.log(dbArticle);
+      // res.json(dbArticle);
+      res.render("articles",{
+        data: dbArticle
+      })
 
-      res.json(dbArticle);
     })
     .catch(function (err) {
       // If an error occurred, send it to the client
@@ -156,7 +163,7 @@ app.post("/api/saved", function (req, res) {
 });
 
 // Route for saving/updating an Article's associated Note
-app.post("/articles/:id", function (req, res) {
+app.post("/articles/:id", function (req, res) {  // saveid
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
     .then(function (dbNote) {
@@ -177,6 +184,7 @@ app.post("/articles/:id", function (req, res) {
     });
 });
 
+// delete article id
 app.post("/articles/:id", function (req, res) {
   db.Article.deleteOne({ _id: req.params.id })
     .then(function (removed) {
