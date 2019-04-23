@@ -88,8 +88,9 @@ app.get("/scrape", function (req, res) {
           });
       }
       console.log(results);
-      res.render("scrape",{results: results});
+
     });
+    res.render("scrape",{results: results});
   });
   // Log the results once you've looped through each of the elements found with cheerio
   //res.send("Scrape Complete");
@@ -185,7 +186,7 @@ app.post("/articles/:id", function (req, res) {  // saveid
 });
 
 // delete article id
-app.post("/articles/:id", function (req, res) {
+app.delete("/articles/:id", function (req, res) {
   db.Article.deleteOne({ _id: req.params.id })
     .then(function (removed) {
       res.json(removed);

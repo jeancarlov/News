@@ -38,10 +38,11 @@ $(document).on("click", "#save-article", function () {
 
   // Query on  delete articles button
 $(document).on("click", "#delete-button", function () {
-  var thisId =$(this).attr("data-id");
+  var thisId =$(this).attr("data-_id");
+  console.log(thisId);
   $.ajax({
     method:"DELETE",
-    url: "/articles" + id// in server.js  we need a route to /articles/:id 
+    url: "/articles/" + thisId// in server.js  we need a route to /articles/:id 
   }).then(function(){
     window.location.reload();
   })
@@ -51,10 +52,10 @@ $(document).on("click", "#delete-button", function () {
 // Query on articles notes button
  //  server.js  we need a route to /articles/:id with the Post method
 $(document).on("click", "#article-notes", function () {
-  var thisId =$(this).attr("data-id");
+  var thisId =$(this).attr("data-_id");
   $.ajax({
     method:"POST",
-    url: "/articles" + id,
+    url: "/articles/" + thisId,
     // data:{
     //   // title input
     //   title:,
